@@ -2,7 +2,9 @@ Spring Boot 2.2.6.RELEASE
 
 Spring data JPA 2.2.6.RELEASE 
 
-MySQL 5.1.45 
+Hibernate 5.4.12.Final
+
+MySQL 8.0.19 
 
 AngularJS 1.7.8
 
