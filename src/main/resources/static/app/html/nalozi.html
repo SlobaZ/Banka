@@ -1,0 +1,92 @@
+<div ng-controller="NaloziCtrl">
+
+	<br/>	
+	<h3 class="centrirano">Pretraga naloga:</h3>	
+	<div class="row">		
+		<div class="col-6">
+		<form>
+			<div class="form-group">
+				<label>Uplatilac</label> 
+				<input ng-model="search.uplatilac" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Primalac</label> 
+				<input ng-model="search.primalac" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Mesto Uplatioca</label> 
+				<input ng-model="search.uplatilacMesto" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Mesto Primaoca</label> 
+				<input ng-model="search.primalacMesto" class="form-control">
+			</div>
+			<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+		</form>	
+	</div>
+			
+		<div class="col-6">
+		<form>
+		<div class="form-group">
+				<label>Iznos Minimum</label>
+				<input ng-model="search.iznosMin" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Iznos Maksimum</label>
+				<input ng-model="search.iznosMax" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Datum i Vreme Pocetak</label>
+				<input ng-model="search.datumvremePocetak" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Datum i Vreme Kraj</label>
+				<input ng-model="search.datumvremeKraj" class="form-control">
+			</div>
+			<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+		</form>	
+	</div>
+	</div>
+	
+	<br/>
+		<h3 class="centrirano">Svi Nalozi pregled:</h3>	
+		<div class="col-12">
+		
+		<div style="margin-bottom:10px" class="btn-group float-right">
+			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-primary">Previous</button>
+			<button ng-disabled="pageNum == totalPages - 1" ng-click="changePage(1)" class="btn btn-primary">Next</button>
+		</div>		
+		
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Uplatilac</th>
+						<th>ID U</th>
+						<th>Mesto Uplatioca</th>
+						<th>Primalac</th>						
+						<th>ID P</th>
+						<th>Mesto Primaoca</th>
+						<th>Iznos</th>
+						<th>Datum i Vreme</th>
+						<th>Izmeni / Obrisi</th>
+					</tr>
+				</thead>
+				<tbody>        <!-- IZ TRANSAKCIJA DTO -->
+					<tr ng-repeat="t in transakcije">
+						<td>{{t.uplatilacImePrezime}}</td>
+						<td>{{t.uplatilacId}}</td>
+						<td>{{t.uplatilacMesto}}</td>
+						<td>{{t.primalacImePrezime}}</td>
+						<td>{{t.primalacId}}</td>
+						<td>{{t.primalacMesto}}</td>
+						<td>{{t.iznos}} din</td>
+						<td>{{t.datetime}}</td>
+						<td><button class="btn btn-warning" ng-click="goToEdit(t.id)">Edit</button>
+						<button class="btn btn-danger" ng-click="doDelete(t.id)">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

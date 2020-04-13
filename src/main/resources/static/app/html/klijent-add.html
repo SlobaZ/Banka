@@ -1,0 +1,51 @@
+<div ng-controller="AddKlijentCtrl">
+<br/>
+<h1>Add Klijent</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<form>
+				<div class="form-group">
+					<label>Ime i Prezime</label>
+					<input class="form-control"  ng-model="newKlijent.imeprezime" />
+				</div>
+				
+				<div class="form-group">
+					<label>Mesto</label>
+					<input class="form-control" ng-model="newKlijent.mesto"/>
+				</div>
+				
+				<div class="form-group">
+					<label>Adresa</label>
+					<input class="form-control" ng-model="newKlijent.adresa"/>
+				</div>
+				
+				<div class="form-group">
+					<label>JMBG</label>
+					<input class="form-control"  ng-model="newKlijent.jmbg"/>
+				</div>
+				
+				<div class="form-group">
+					<label>Telefon</label>
+					<input class="form-control"  ng-model="newKlijent.telefon"/>
+				</div>
+				
+				<div class="form-group">
+					<label>Mobilni</label>
+					<input class="form-control"  ng-model="newKlijent.mobilni"/>
+				</div>
+				
+				<div class="form-group">
+					<label>Broj Racuna</label>
+					<input class="form-control" ng-model="newKlijent.brojracuna"/>
+				</div>
+				
+				<div class="form-group">
+					<label>Stanje</label>
+					<input class="form-control"  ng-model="newKlijent.stanje"/>
+				</div>
+
+				<button class="btn btn-primary" ng-click="doAdd()">Add</button>
+			</form>
+		</div>
+		</div>
+</div>

@@ -1,0 +1,49 @@
+<div ng-controller="EditKlijentCtrl">
+<br/>
+<h1>Edit Klijent</h1>
+	<form>
+		<div class="form-group">
+			<label>Ime i Prezime</label>
+			<input class="form-control" ng-model="klijent.imeprezime" />
+		</div>
+		
+		<div class="form-group">
+			<label>Mesto</label>
+			<input class="form-control" ng-model="klijent.mesto"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Adresa</label>
+			<input class="form-control" ng-model="klijent.adresa"/>
+		</div>
+		
+		<div class="form-group">
+			<label>JMBG</label>
+			<input class="form-control" ng-model="klijent.jmbg"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Telefon</label>
+			<input class="form-control" ng-model="klijent.telefon"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Mobilni</label>
+			<input class="form-control" ng-model="klijent.mobilni"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Broj Racuna</label>
+			<input class="form-control" ng-model="klijent.brojracuna"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Stanje</label>
+			<input class="form-control" ng-model="klijent.stanje"/>
+		</div>
+		
+
+		<button class="btn btn-primary" ng-click="doEdit()">Edit</button>
+	</form>
+	
+</div>

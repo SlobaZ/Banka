@@ -1,0 +1,33 @@
+<div ng-controller="EditNalogCtrl">
+<br/>
+<h1>Edit transakcija</h1>
+	<form>
+		<div class="form-group">
+			<label>Uplatilac</label>
+			<select ng-model="transakcija.uplatilacId"  class="form-control">
+				<option ng-repeat="k in klijenti" ng-selected="k.id == transakcija.uplatilacId" value="{{k.id}}">{{k.imeprezime}}</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Primalac</label>
+			<select ng-model="transakcija.primalacId"  class="form-control">
+				<option ng-repeat="k in klijenti" ng-selected="k.id == transakcija.primalacId" value="{{k.id}}">{{k.imeprezime}}</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Iznos</label>
+			<input class="form-control" ng-model="transakcija.iznos"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Datum i Vreme</label>
+			<input class="form-control" ng-model="transakcija.datetime"/>
+		</div>
+		
+
+		<button class="btn btn-primary" ng-click="doEdit()">Edit</button>       <!-- IZ TRANSAKCIJA DTO -->
+	</form>
+
+</div>

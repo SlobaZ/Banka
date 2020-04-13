@@ -1,0 +1,100 @@
+<div ng-controller="TransakcijeCtrl">
+<br/>
+
+	<div class="row">		
+	<div class="col-5">
+	<form>
+	<h5>Pretrazi klijente:</h5>
+	<br/>
+		<div class="form-group">
+				<label>Ime i Prezime</label>
+				<input ng-model="search.imeprezime" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Mesto</label>
+				<input ng-model="search.mesto" class="form-control">
+			</div>
+				
+	<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+	</form>
+	</div>
+	<div class="col-7">
+	<form>
+		 <div class="form-group">
+    		<h5>Odaberi ulogu:</h5>
+    		<select class="form-control"  ng-model="uloga" ng-click="GetUloga($index)">
+     				<option value="uplatilac">Uplatilac</option>
+      				<option value="primalac">Primalac</option>
+    		</select>
+ 	 	</div>
+ 	 	
+ 	 	<div class="form-group">
+  		  <h6>Uplatilac:</h6>
+  		  <table>
+  		  <tr>
+  		  <td> {{NewTransakcija.uplatilacId}}</td>
+  		  <td> {{podatci.imeprezimeU}} &nbsp;</td>
+  		  <td> {{podatci.jmbgU}} &nbsp;</td>
+  		  <td> {{podatci.mestoU}} &nbsp;</td>
+  		  <td> {{podatci.brojracunaU}} </td>
+  		  </tr>
+  		  </table>
+  		</div>
+  		
+  		<div class="form-group">
+  		  <h6>Primalac:</h6>
+   		   <table>
+  		  <tr>
+  		  <td> {{NewTransakcija.primalacId}} </td>
+  		  <td> {{podatci.imeprezimeP}} &nbsp;</td>
+  		  <td> {{podatci.jmbgP}} &nbsp;</td>
+  		  <td> {{podatci.mestoP}} &nbsp;</td>
+  		  <td> {{podatci.brojracunaP}} </td>
+  		  </tr>
+  		  </table>
+  		</div>
+  		
+ 	 	<div class="form-group">
+			<h6>Iznos</h6>
+			<input class="form-control" ng-model="NewTransakcija.iznos"/>
+		</div>
+				
+	<button ng-click="doUplati()"  class="btn btn-primary">Uplati</button>
+	</form>
+	</div>
+	</div>
+	
+	<br/>
+	<h5>Odaberi klijenta:</h5>
+
+			<div class="col-12">
+		
+		<div style="margin-bottom:10px" class="btn-group float-right">
+			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-primary">Previous</button>
+			<button ng-disabled="pageNum == totalPages - 1" ng-click="changePage(1)" class="btn btn-primary">Next</button>
+		</div>		
+		
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Ime i Prezime</th>
+						<th>JMBG</th>
+						<th>Mesto</th>
+						<th>Broj Racuna</th>
+						<th>Stanje</th>
+					</tr>
+				</thead>
+				<tbody class="redovi">
+					<tr ng-repeat="k in klijenti" ng-click="GetDetails($index)">
+						<td>{{k.imeprezime}}</td>
+						<td>{{k.jmbg}}</td>
+						<td>{{k.mesto}}</td>
+						<td>{{k.brojracuna}}</td>
+						<td>{{k.stanje}} din</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+	
+</div>

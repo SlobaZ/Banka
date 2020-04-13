@@ -1,0 +1,34 @@
+<div ng-controller="BrzeTransakcijeCtrl">
+<br/>
+<h3> Brza Transakcija - Uplata</h3>
+<br/>
+	<div class="row">		
+	<div class="col-6">
+	<form>
+		<div class="form-group">
+			<label>Uplatilac</label>
+			<select ng-model="NewBrzaTransakcija.uplatilacId"  class="form-control">
+				<option ng-repeat="k in klijenti"  value="{{k.id}}">{{k.imeprezime}}</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Primalac</label>
+			<select ng-model="NewBrzaTransakcija.primalacId"  class="form-control">
+				<option ng-repeat="k in klijenti"  value="{{k.id}}">{{k.imeprezime}}</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Iznos</label>
+			<input class="form-control" ng-model="NewBrzaTransakcija.iznos"/>
+		</div>
+				
+
+		<button class="btn btn-primary" ng-click="doUplati()">Uplati</button>       <!-- IZ TRANSAKCIJA DTO -->
+	</form>
+	</div>
+	</div>
+	
+	
+</div>
