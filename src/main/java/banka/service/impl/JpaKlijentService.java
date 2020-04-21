@@ -62,8 +62,18 @@ public class JpaKlijentService implements KlijentService{
 	@Override
 	public Klijent uzmiKredit(Integer id, double iznosKredita, int trajanje) {
 		Klijent klijent = klijentRepository.getOne(id);
-		Double mesecnaRata =  iznosKredita / ( trajanje * 12 );
-		if (klijent.getStanje() > mesecnaRata) {
+		double ukupanKredit=0;
+		if(trajanje<=10) {
+			ukupanKredit = iznosKredita * 1.2;
+		}
+		else if(trajanje>10 && trajanje<=20) {
+			ukupanKredit = iznosKredita * 1.5;
+		}
+		else if(trajanje>20) {
+			ukupanKredit = iznosKredita * 1.8;
+		}
+		Double mesecnaRata =  ukupanKredit / ( trajanje * 12 );
+		if (klijent.getStanje()/3 > mesecnaRata) {
 			klijent.setStanje(klijent.getStanje() - mesecnaRata);
 		} else {
 			return null;
